@@ -70,7 +70,7 @@ class _Register_customerState extends State<Register_customer> {
                   Padding(
                     padding: EdgeInsets.fromLTRB(20, 50, 50, 0),
                     child: Text(
-                      'ชื่อจริง นามสกุล',
+                      'ชื่อจริง นามสกุล hutu',
                       style: TextStyle(color: Color(0xff616161), fontSize: 15),
                     ),
                   ),
