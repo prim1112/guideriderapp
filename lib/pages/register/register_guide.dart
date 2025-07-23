@@ -34,6 +34,7 @@ class _Register_guideState extends State<Register_guide> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: const Color(0xfffafafa),
         title: const Text(
@@ -57,19 +58,29 @@ class _Register_guideState extends State<Register_guide> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 50),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              SizedBox(
-                width: 100,
-                height: 100,
-                child: (image != null)
-                    ? Image.file(image!, fit: BoxFit.cover)
-                    : Image.asset('assets/images/user.png', fit: BoxFit.cover),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: (image != null)
+                        ? Image.file(image!, fit: BoxFit.cover)
+                        : Image.asset(
+                            'assets/images/user.png',
+                            fit: BoxFit.cover,
+                          ),
+                  ),
+                ],
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(100, 0, 0, 0),
+                padding: const EdgeInsets.only(left: 190),
                 child: SizedBox(
                   width: 30,
                   height: 30,
@@ -83,383 +94,284 @@ class _Register_guideState extends State<Register_guide> {
                   ),
                 ),
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 50, 50, 0),
-                    child: Text(
-                      'ชื่อจริง นามสกุล',
-                      style: TextStyle(color: Color(0xff616161), fontSize: 15),
-                    ),
-                  ),
-                ],
+              Text(
+                'ชื่อจริง นามสกุล',
+                style: TextStyle(color: Color(0xff616161), fontSize: 15),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                child: SizedBox(
-                  height: 40,
-                  child: TextField(
-                    controller: null,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(
-                          color: Color(0xff343434),
-                          width: 1,
-                        ),
+              SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: null,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color(0xff343434),
+                        width: 1,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(
-                          color: Color(0xffcfd8dc),
-                          width: 1,
-                        ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color(0xffcfd8dc),
+                        width: 1,
                       ),
                     ),
                   ),
                 ),
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 20, 50, 0),
-                    child: Text(
-                      'เบอร์โทรศัพท์',
-                      style: TextStyle(color: Color(0xff616161), fontSize: 15),
-                    ),
-                  ),
-                ],
+              SizedBox(height: 20),
+              Text(
+                'เบอร์โทรศัพท์',
+                style: TextStyle(color: Color(0xff616161), fontSize: 15),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                child: SizedBox(
-                  height: 40,
-                  child: TextField(
-                    controller: null,
-                    keyboardType: TextInputType.phone,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
+              SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: null,
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
 
-                        borderSide: const BorderSide(
-                          color: Color(0xff343434),
-                          width: 1,
-                        ),
+                      borderSide: const BorderSide(
+                        color: Color(0xff343434),
+                        width: 1,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(
-                          color: Color(0xffcfd8dc),
-                          width: 1,
-                        ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color(0xffcfd8dc),
+                        width: 1,
                       ),
                     ),
                   ),
                 ),
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 20, 50, 0),
-                    child: Text(
-                      'อีเมล',
-                      style: TextStyle(color: Color(0xff616161), fontSize: 15),
-                    ),
-                  ),
-                ],
+              SizedBox(height: 20),
+              Text(
+                'อีเมล',
+                style: TextStyle(color: Color(0xff616161), fontSize: 15),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                child: SizedBox(
-                  height: 40,
-                  child: TextField(
-                    controller: null,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
+              SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: null,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
 
-                        borderSide: const BorderSide(
-                          color: Color(0xff343434),
-                          width: 1,
-                        ),
+                      borderSide: const BorderSide(
+                        color: Color(0xff343434),
+                        width: 1,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(
-                          color: Color(0xffcfd8dc),
-                          width: 1,
-                        ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color(0xffcfd8dc),
+                        width: 1,
                       ),
                     ),
                   ),
                 ),
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 20, 50, 0),
-                    child: Text(
-                      'ที่อยู่ปัจจุบัน',
-                      style: TextStyle(color: Color(0xff616161), fontSize: 15),
-                    ),
-                  ),
-                ],
+              SizedBox(height: 20),
+              Text(
+                'ที่อยู่ปัจจุบัน',
+                style: TextStyle(color: Color(0xff616161), fontSize: 15),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                child: SizedBox(
-                  height: 40,
-                  child: TextField(
-                    controller: null,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
+              SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: null,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
 
-                        borderSide: const BorderSide(
-                          color: Color(0xff343434),
-                          width: 1,
-                        ),
+                      borderSide: const BorderSide(
+                        color: Color(0xff343434),
+                        width: 1,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(
-                          color: Color(0xffcfd8dc),
-                          width: 1,
-                        ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color(0xffcfd8dc),
+                        width: 1,
                       ),
                     ),
                   ),
                 ),
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 20, 50, 0),
-                    child: Text(
-                      'เพศ',
-                      style: TextStyle(color: Color(0xff616161), fontSize: 15),
+              SizedBox(height: 20),
+              Text(
+                'เพศ',
+                style: TextStyle(color: Color(0xff616161), fontSize: 15),
+              ),
+              SizedBox(
+                width: 140,
+                height: 40,
+                child: DropdownButtonFormField<String>(
+                  value: selectedGender ?? genderList.first,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 10,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color(0xffcfd8dc), // ขอบปกติ
+                        width: 1,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 186, 185, 185), // ขอบโฟกัส
+                        width: 1,
+                      ),
                     ),
                   ),
-                ],
+                  items: genderList.map((String gender) {
+                    return DropdownMenuItem<String>(
+                      value: gender,
+                      child: Text(gender),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedGender = newValue!;
+                    });
+                  },
+                ),
               ),
+              SizedBox(height: 20),
+              Text(
+                'วันเกิด',
+                style: TextStyle(color: Color(0xff616161), fontSize: 15),
+              ),
+              SizedBox(height: 20),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                    child: SizedBox(
-                      width: 140,
-                      height: 40,
-                      child: DropdownButtonFormField<String>(
-                        value: selectedGender ?? genderList.first,
-                        decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 10,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: const BorderSide(
-                              color: Color(0xffcfd8dc), // ขอบปกติ
-                              width: 1,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: const BorderSide(
-                              color: Color.fromARGB(
-                                255,
-                                186,
-                                185,
-                                185,
-                              ), // ขอบโฟกัส
-                              width: 1,
-                            ),
-                          ),
-                        ),
-                        items: genderList.map((String gender) {
-                          return DropdownMenuItem<String>(
-                            value: gender,
-                            child: Text(gender),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            selectedGender = newValue!;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 20, 50, 0),
-                    child: Text(
-                      'วันเกิด',
-                      style: TextStyle(color: Color(0xff616161), fontSize: 15),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 20, 50, 0),
-                        child: Text(
-                          'วันที่',
-                          style: TextStyle(
-                            color: Color(0xff616161),
-                            fontSize: 15,
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(20, 10, 0, 0),
-                          child: SizedBox(
-                            width: 70,
-                            height: 40,
-                            child: TextField(
-                              controller: null,
-                              keyboardType: TextInputType.phone,
-                              decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: BorderSide(
-                                    color: Color(0xff343434),
-                                    width: 1,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: const BorderSide(
-                                    color: Color(0xffcfd8dc),
-                                    width: 1,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.fromLTRB(10, 20, 50, 0),
-                        child: Text(
-                          'เดือน',
-                          style: TextStyle(
-                            color: Color(0xff616161),
-                            fontSize: 15,
-                          ),
+                      Text(
+                        'วันที่',
+                        style: TextStyle(
+                          color: Color(0xff616161),
+                          fontSize: 15,
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: SizedBox(
-                          width: 140,
-                          height: 40,
-                          child: DropdownButtonFormField<String>(
-                            value: selectedMonth ?? monthList.first,
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 10,
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                // <--- ขอบเมื่อยังไม่โฟกัส
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: const BorderSide(
-                                  color: Color.fromARGB(
-                                    255,
-                                    214,
-                                    213,
-                                    213,
-                                  ), // ใส่สีที่ต้องการ
-                                  width: 1,
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                // <--- ขอบเมื่อมีการโฟกัส
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: const BorderSide(
-                                  color: Color.fromARGB(
-                                    255,
-                                    214,
-                                    213,
-                                    213,
-                                  ), // ใส่สีที่ต้องการตอนโฟกัส
-                                  width: 1,
-                                ),
+                      SizedBox(
+                        width: 70,
+                        height: 40,
+                        child: TextField(
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(
+                                color: Color(0xff343434),
+                                width: 1,
                               ),
                             ),
-
-                            items: monthList.map((String month) {
-                              return DropdownMenuItem<String>(
-                                value: month,
-                                child: Text(month),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedMonth = newValue!;
-                              });
-                            },
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(
+                                color: Color(0xffcfd8dc),
+                                width: 1,
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ],
                   ),
+                  SizedBox(width: 10),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: Text(
-                          'ปี(พ.ศ.)',
-                          style: TextStyle(
-                            color: Color(0xff616161),
-                            fontSize: 15,
-                          ),
+                      Text(
+                        'เดือน',
+                        style: TextStyle(
+                          color: Color(0xff616161),
+                          fontSize: 15,
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-                        child: SizedBox(
-                          width: 90,
-                          height: 40,
-                          child: TextField(
-                            controller: null,
-                            keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: BorderSide(
-                                  color: Color(0xff343434),
-                                  width: 1,
-                                ),
+                      SizedBox(
+                        width: 140,
+                        height: 40,
+                        child: DropdownButtonFormField<String>(
+                          value: selectedMonth ?? monthList.first,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 10,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(
+                                color: Color(0xffcfd8dc),
+                                width: 1,
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: const BorderSide(
-                                  color: Color(0xffcfd8dc),
-                                  width: 1,
-                                ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(
+                                color: Color(0xff343434),
+                                width: 1,
+                              ),
+                            ),
+                          ),
+                          items: monthList.map((String month) {
+                            return DropdownMenuItem<String>(
+                              value: month,
+                              child: Text(month),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              selectedMonth = newValue!;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'ปี(พ.ศ.)',
+                        style: TextStyle(
+                          color: Color(0xff616161),
+                          fontSize: 15,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 90,
+                        height: 40,
+                        child: TextField(
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(
+                                color: Color(0xff343434),
+                                width: 1,
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(
+                                color: Color(0xffcfd8dc),
+                                width: 1,
                               ),
                             ),
                           ),
@@ -469,84 +381,66 @@ class _Register_guideState extends State<Register_guide> {
                   ),
                 ],
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 20, 50, 0),
-                    child: Text(
-                      'รหัสผ่าน',
-                      style: TextStyle(color: Color(0xff616161), fontSize: 15),
-                    ),
-                  ),
-                ],
+              SizedBox(height: 20),
+              Text(
+                'รหัสผ่าน',
+                style: TextStyle(color: Color(0xff616161), fontSize: 15),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                child: SizedBox(
-                  height: 40,
-                  child: TextField(
-                    controller: null,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-
-                        borderSide: const BorderSide(
-                          color: Color(0xff343434),
-                          width: 1,
-                        ),
+              SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: null,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color(0xff343434),
+                        width: 1,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(
-                          color: Color(0xffcfd8dc),
-                          width: 1,
-                        ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color(0xffcfd8dc),
+                        width: 1,
                       ),
                     ),
                   ),
                 ),
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 20, 50, 0),
-                    child: Text(
-                      'ยืนยันรหัสผ่าน',
-                      style: TextStyle(color: Color(0xff616161), fontSize: 15),
-                    ),
-                  ),
-                ],
+              SizedBox(height: 20),
+              Text(
+                'ยืนยันรหัสผ่าน',
+                style: TextStyle(color: Color(0xff616161), fontSize: 15),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                child: SizedBox(
-                  height: 40,
-                  child: TextField(
-                    controller: null,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
+              SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: null,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
 
-                        borderSide: const BorderSide(
-                          color: Color(0xff343434),
-                          width: 1,
-                        ),
+                      borderSide: const BorderSide(
+                        color: Color(0xff343434),
+                        width: 1,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(
-                          color: Color(0xffcfd8dc),
-                          width: 1,
-                        ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Color(0xffcfd8dc),
+                        width: 1,
                       ),
                     ),
                   ),
                 ),
               ),
+              SizedBox(height: 50),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+                padding: const EdgeInsets.only(left: 80),
                 child: SizedBox(
                   width: 150,
                   height: 40,
